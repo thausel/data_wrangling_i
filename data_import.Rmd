@@ -1,21 +1,42 @@
 ---
-title: "Simple document"
-output: html_document
+title: "Data Import"
+output: github_document
 ---
 
-I'm an R Markdown document! 
-
-# Section 1
-
-Here's a **code chunk** that samples from 
-a _normal distribution_:
-
-```{r}
-samp = rnorm(100)
-length(samp)
+```{r setup}
+library(tidyverse)
 ```
 
-# Section 2
+### Read in some data
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+Read in the litters dataset and clean it using clean_names (e.g., turns titles in snakecase)
+
+```{r}
+litters_df = read_csv("./data/FAS_litters.csv")
+litters_df = janitor::clean_names(litters_df)
+```
+
+## Take a look at data
+
+Printing in the console, so you can see everything that is going in
+```{r}
+litters_df
+```
+
+Look at head/tail of the litters dataset
+```{r}
+tail(litters_df)
+```
+
+Gives a nice overview of the data
+```{r}
+skimr::skim(litters_df)
+```
+
+view the data in a separate tab using view (dataframe_name) --> but only do that in the console or else the it can mess up the knitting process
+
+
+
+
+
+
