@@ -116,5 +116,25 @@ Data summary
 | pups_dead_birth |         0 |          1.00 |  0.33 | 0.75 |  0.0 |  0.00 |  0.00 |  0.00 |  4.0 | ▇▂▁▁▁ |
 | pups_survive    |         0 |          1.00 |  6.41 | 2.05 |  1.0 |  5.00 |  7.00 |  8.00 |  9.0 | ▁▃▂▇▇ |
 
-view the data in a separate tab using view (dataframe_name) –\> but only
+View the data in a separate tab using view (dataframe_name) –\> but only
 do that in the console or else the it can mess up the knitting process
+
+## Options to view data
+
+Skip first row , make sure first row is not taken as names , empty
+values show up as NA
+
+``` r
+litters_df = read_csv("./data/FAS_litters.csv", skip = 10, col_names = FALSE, na = c("", "NA", ".", 999))
+```
+
+    ## Rows: 40 Columns: 8
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr (2): X1, X2
+    ## dbl (6): X3, X4, X5, X6, X7, X8
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+Check out `?read_csv()` for more information

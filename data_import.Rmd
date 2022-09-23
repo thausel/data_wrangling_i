@@ -33,10 +33,17 @@ Gives a nice overview of the data
 skimr::skim(litters_df)
 ```
 
-view the data in a separate tab using view (dataframe_name) --> but only do that in the console or else the it can mess up the knitting process
+View the data in a separate tab using view (dataframe_name) --> but only do that in the console or else the it can mess up the knitting process
 
+## Options to view data
 
+Skip first row , make sure first row is not taken as names , empty values show up as NA
 
+```{r}
+litters_df = read_csv("./data/FAS_litters.csv", skip = 10, col_names = FALSE, na = c("", "NA", ".", 999))
+```
+
+Check out `?read_csv()` for more information
 
 
 
